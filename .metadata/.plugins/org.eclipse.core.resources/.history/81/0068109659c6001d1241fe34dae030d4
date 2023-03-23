@@ -1,0 +1,13 @@
+package konu.giris;
+// 1. Servlet kaynak kodunu oluştur. // bu şuanki StartUp sınıfı 
+// 2. web.xml içerisine  servlet'imizi mapliyoruz.Hangi path'e bağlı olarak çalışan bir dosya bunun bilgisini veriyoruz.
+// 3. Apache Tomcat sunucusunu başlatıyoruz.
+// 4. Web tarayıcısını açıp servlet'imize istekte bulunucaz.yani request atıcaz .
+// backend tarafında bir web sayfası talep ediyoruz o sayfa düzenlendikten sonra da sunucu aracılığıyla o sayfa bize gelecek ve biz onu tarayıcıda göstericez .
+// yani servlet'imize istekte bulunucaz servlet sunucu aracılığıyla bize isteğimizi iletcek .
+
+public class StartUp {
+	
+	
+
+}

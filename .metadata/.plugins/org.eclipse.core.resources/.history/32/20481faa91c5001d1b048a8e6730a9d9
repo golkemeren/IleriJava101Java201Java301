@@ -1,0 +1,17 @@
+package dao.dataAccesObject;
+
+import java.sql.SQLException;
+
+public class StartUp {
+
+	public static void main(String[] args) throws SQLException {
+            OgrenciDAO  ogrenciDao = new OgrenciDAO();
+            
+            //21401747
+            Ogrenci arananOgrenci = ogrenciDao.getOgrenci("21401747");
+     if(arananOgrenci==null) {
+    	arananOgrenci.bilgiVer();
+     }
+	}
+
+}

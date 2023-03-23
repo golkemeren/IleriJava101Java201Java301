@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Öğretmen Ekle </title>
+</head>
+<body>
+ <form action="OgretmenEkle.jsp">
+<table>
+<tr>
+  <th>Numara</th>
+  <th>Adı</th>
+  <th>Soyadı</th>
+  <th>Brans</th>
+</tr>
+
+<tr>
+<td><input type = "text" name= "no" value = "123"> </td>
+<td><input type = "text" name= "ad" value = "Gölkem"> </td>
+<td><input type = "text" name= "soyad" value = "EREN"> </td>
+<td><input type = "text" name= "brans" value = "Matematik"> </td>
+</tr>
+</table>
+<input type = "submit" value ="Öğretmen Ekle">
+</form>
+</body>
+</html>

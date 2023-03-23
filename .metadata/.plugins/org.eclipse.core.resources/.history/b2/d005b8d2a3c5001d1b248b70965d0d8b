@@ -1,0 +1,49 @@
+package dao.dataAccesObject;
+
+import java.sql.SQLException;
+
+public class StartUp {
+
+	public static void main(String[] args) throws SQLException {
+            OgrenciDAO  ogrenciDAO = new OgrenciDAO();
+            
+            //24401747
+            Ogrenci arananOgrenci = ogrenciDAO.getOgrenci("24401747");
+            Ogrenci arananOgrenci1 = ogrenciDAO.getOgrenci("11111111");
+            if(arananOgrenci1!=null) { // ogrenci no boş değilse bilgi ver 
+            	arananOgrenci1.bilgiVer();
+             }
+            else {System.out.println("Ogrenci Bulunamadi");
+            }
+            
+            Ogrenci eklenecekOgrenci = new Ogrenci();  // Ogrenci ekledik .
+            eklenecekOgrenci.setNo("15201478");
+            eklenecekOgrenci.setKullaniciAdi("cemil1651");
+            eklenecekOgrenci.setAd("Cemil");
+            eklenecekOgrenci.setSoyad("Bardak");
+          
+            ogrenciDAO.ogrenciEkle(eklenecekOgrenci);
+            
+            ogrenciDAO.ogrenciSil(eklenecekOgrenci);
+            
+            eklenecekOgrenci.setNo("21101582");
+            eklenecekOgrenci.setAd("Yunus");
+            eklenecekOgrenci.setSoyad("Dertsiz");
+            eklenecekOgrenci.setKullaniciAdi("yunus581");
+            ogrenciDAO.ogrenciEkle(eklenecekOgrenci);
+            
+            try {
+				ogrenciDAO.ogrenciEkle(eklenecekOgrenci);
+			
+			} catch (Exception e) {
+					System.out.println("Ekleme islemi gerceklesmedi!!");
+			}
+            
+            eklenecekOgrenci.setKullaniciAdi("yunus6161");
+            ogrenciDAO.ogrenciGuncelle(eklenecekOgrenci,eklenecekOgrenci.getNo());
+            
+            
+	}
+	
+
+}

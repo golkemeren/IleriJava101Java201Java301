@@ -1,0 +1,5 @@
+package dao.dataAccesObject;
+
+public class Ogrenci {
+
+}

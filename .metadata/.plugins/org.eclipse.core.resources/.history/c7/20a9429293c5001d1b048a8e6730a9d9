@@ -1,0 +1,20 @@
+package dao.dataAccesObject;
+
+import java.sql.SQLException;
+
+public class StartUp {
+
+	public static void main(String[] args) throws SQLException {
+            OgrenciDAO  ogrenciDao = new OgrenciDAO();
+            
+            //24401747
+            Ogrenci arananOgrenci = ogrenciDao.getOgrenci("24401747");
+            Ogrenci arananOgrenci1 = ogrenciDao.getOgrenci("11111111");
+            if(arananOgrenci1!=null) { // ogrenci no boş değilse bilgi ver 
+            	arananOgrenci1.bilgiVer();
+             }
+            else {System.out.println("Ogrenci Bulunamadi");}
+	}
+	
+
+}

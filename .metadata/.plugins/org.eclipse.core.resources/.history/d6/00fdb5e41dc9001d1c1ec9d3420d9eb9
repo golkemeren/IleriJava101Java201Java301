@@ -1,0 +1,32 @@
+<%@ page import="bean.pojo.Ogrenci" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+
+<title>Öğrenciler</title>
+</head>
+<body>
+
+ŞU ANDA ÖĞRENCİLER SAYFASINDAYIZ !!!!
+ 
+ <br>
+ <% Ogrenci o = (Ogrenci)request.getAttribute("ogrenci"); %>
+ <%=   "Adı Soyad : " + o.getAd() + " " + o.getSoyad()+ "<br>" %> 
+ <%=   "Okul Numarası :" + o.getNo() + "<br>"  %>
+ <%=  " Sınıf / Şube :" + o.getSinif() + " /" +o.getSube() %>
+
+<jsp:useBean id="ogrenci" class = "bean.pojo.Ogrenci" scope = "request"></jsp:useBean>
+<jsp:getProperty property="no" name="ogrenci"/>
+<jsp:getProperty property="ad" name="ogrenci"/>
+<jsp:getProperty property="soyad" name="ogrenci"/>
+<jsp:getProperty property="sinif" name="ogrenci"/>
+<jsp:getProperty property="sube" name="ogrenci"/>
+</body> 
+
+</html>

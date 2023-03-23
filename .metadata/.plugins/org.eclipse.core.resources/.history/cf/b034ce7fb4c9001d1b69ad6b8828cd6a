@@ -1,0 +1,89 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Öğretmen Ekle </title>
+
+<style >.button{
+
+background-color:green;
+border : none ; 
+color :white;
+padding : 15px 30px ;
+text-align:center ;
+text-decoration:none ;
+font-size:16px;
+transition : background-color 1s ease;
+} 
+.button:hover {
+background-color:red;
+cursor:pointer;
+}
+.table {
+border-collapse : collapse;
+white :100%;
+}
+.td,.th{
+border:1px solid black ; 
+text-allign:left;
+padding:10px;
+}
+
+</style>
+
+
+</head>
+<body>
+ <form action="OgretmenEkle.jsp" method = "post">
+<table class = "table">
+<tr class = "tr">
+  <th class = "th">Numara</th>
+  <th class = "th">Adı</th>
+  <th class = "th">Soyadı</th>
+  <th class = "th">Brans</th>
+</tr>
+
+<tr class = "tr">
+<td class = "td"><input type = "text" name= "no" value = "123"> </td>
+<td class = "td"><input type = "text" name= "ad" value = "Gölkem"> </td>
+<td class = "td"><input type = "text" name= "soyad" value = "EREN"> </td>
+<td class = "td"><input type = "text" name= "brans" value = "Matematik"> </td>
+</tr>
+</table>
+<input type = "submit" class = "button" value ="Öğretmen Ekle">
+</form>
+
+<jsp:useBean id="ogretmen" class = "bean.pojo.Ogretmen">
+<jsp:setProperty property="no" name="ogretmen" value =' <%= request.getParameter("no") != null ? request.getParameter("no"): 0  %>' />
+<jsp:setProperty property="ad" name="ogretmen"/>
+<jsp:setProperty property="soyad" name="ogretmen"/>
+<jsp:setProperty property="brans" name="ogretmen"/>
+</jsp:useBean>
+
+
+<table class = "table">
+<tr> 
+<th> Numara</th>
+<th> Adı Soyadı </th>
+<th> Branş  </th>
+</tr>
+<tr> 
+<td>  <jsp:getProperty property="no" name="ogretmen"/>  </td>
+
+<td> <jsp:getProperty property="ad" name="ogretmen"/>
+     <jsp:getProperty property="soyad" name="ogretmen"/> 
+</td>
+
+<td> <jsp:getProperty property="Brans" name="ogretmen"/>  </td>
+
+</tr>
+
+
+</table>
+
+
+
+</body>
+</html>

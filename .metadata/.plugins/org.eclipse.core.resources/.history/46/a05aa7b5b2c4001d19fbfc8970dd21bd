@@ -1,0 +1,34 @@
+
+
+// 1. import java.sql 
+// 2. load and register the driver (Veri tabanına erişmemizi sağlayacak)
+// 3. create connection // kodlarımız ile veri tabanına bağlantıyı gerçekleştircez 
+// 4. create a statement
+// 5. execute the query
+// 6. proses the results  // veri tabanınan alına verilerin işleminin gerçekleştirilmesi
+// 7. close bağlantının kapatılması 
+
+import java.sql.*;
+
+public class StartUp {
+
+	public static void main(String[] args) {
+	   String url = "jdbc:mysql://localhost:3306/okul";  // kurarken port'u 3306 yapmıştık .
+       String username= "root";
+       String password = "Ge34521905";
+       // burada bildiğimiz sql sorgusu yazarak işlemlerimizi gerçekleştirebiliriz.Java üzerinden sql çalıştırabilicez.
+       String query = "select * from ogrenciler";
+       // Şimdi mySql veritabanı ile bağlantıyı oluşturucaz 
+        
+       Connection conn = null;
+       try {
+		// Connectşon Database
+    	   conn = DriverManager.getConnection(url, username, password);
+    	   System.out.println("Baglantı basarili");
+	} catch (SQLException e) { // getconnection'ın hangi hatayı fırlattığına bakıcaksın SQLConnection 
+		
+		e.printStackTrace();
+	}
+	}
+
+}

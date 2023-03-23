@@ -1,0 +1,71 @@
+
+
+// 1. import java.sql 
+// 2. load and register the driver (Veri tabanına erişmemizi sağlayacak)
+// 3. create connection // kodlarımız ile veri tabanına bağlantıyı gerçekleştircez 
+// 4. create a statement
+// 5. execute the query
+// 6. proses the results  // veri tabanınan alına verilerin işleminin gerçekleştirilmesi
+// 7. close bağlantının kapatılması 
+
+import java.sql.*;
+
+public class StartUp {
+
+	public static void main(String[] args) throws SQLException {
+	   String url = "jdbc:mysql://localhost:3306/okul";  // kurarken port'u 3306 yapmıştık .
+       String username= "root";
+       String password = "Ge34521905";
+       // burada bildiğimiz sql sorgusu yazarak işlemlerimizi gerçekleştirebiliriz.Java üzerinden sql çalıştırabilicez.
+       String query = "select * from ogrenciler";
+       // Şimdi mySql veritabanı ile bağlantıyı oluşturucaz 
+        
+       Connection conn = null;
+       try {
+		// Connectşon Database
+    	   conn = DriverManager.getConnection(url, username, password);
+    	   System.out.println("Baglanti basarili");
+	} catch (SQLException e) { // getconnection'ın hangi hatayı fırlattığına bakıcaksın SQLConnection 
+	
+		e.printStackTrace();
+	}
+       //SQL Komutlarının Kategorileri (DDL,DML,DQL,TCL,DCL)
+       // DDL (CREATE,DROP,ALETER,TRUNCATE)
+       // DML (INSERT,UPDATE,DELETE,CALL,EXPLAIN CALL,LOCK)
+       // DQL(SELECT)
+ 
+       // 4. Create Statement 
+       //5. execute the query
+       Statement st = conn.prepareStatement(query);
+       
+        // 6. proses the results 
+        ResultSet rs = st.executeQuery(query);
+      //  rs.next(); // satır satır dolaşmamızı tek bir satırı getimemizi sağlıyor .
+        
+        while (rs.next()) {
+        	
+            //Simdi ResultSet icerisindeki bilgileri inceliyicez .
+            // Sütün İsimleri
+             // ID ,
+             int ogrenciID = rs.getInt("ID");
+             //ogrenciNo,
+             String ogrenciNo = rs.getString("ogrenciNo");
+             //userName,
+             String ogrenciUserName = rs.getString("userName");
+             //adi,
+             String ogrenciAdi = rs.getString("adi");
+             //soyadi
+             String ogrenciSoyadi = rs.getString("soyadi");
+     	System.out.println(" ID: " + ogrenciID + ", Ogrenci No :" + ogrenciNo +", Adi Soyadi :"+ogrenciAdi+ogrenciSoyadi + ", Kullanici Adi : " + ogrenciUserName);
+      
+        //proccess results yaparak sonuçları işleyerek ekrana bastırmış olduk . 
+     	}
+        query = "INSERT INTO ogrenciler VALUES (ogrenciNo,userName,adi,soyadi) ('19541547','melike24','Melike', 'Ova')";
+       int count = st.executeUpdate(query); // girdiğimiz verileri veri tabanına ekle dedik .
+       System.out.println(count + " satir etkilendi");
+       
+       conn.close(); // Veri tabanını kapattık 
+        st.close(); // statemenet'i kapattık 
+	}
+
+}
